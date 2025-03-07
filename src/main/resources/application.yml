@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: DocCave-Notify
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_dcc_notify?useSSL=false&serverTimezone=UTC
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 8082
+  tomcat:
+    max-swallow-size: 1024MB
+    max-http-form-post-size: 1024MB
+  servlet:
+    context-path: /api/v1/
+
+client:
+  clientId: dcn-client
+  clientSecret: dcn-secret
+
+doccave:
+  url: http://localhost:8080/api/v1
+
+sso:
+  url: http://195.35.43.251:8081/api/v1
+
+
+
+
